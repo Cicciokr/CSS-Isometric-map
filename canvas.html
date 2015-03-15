@@ -1,0 +1,92 @@
+<style>
+    body {
+        margin:0;
+        padding:0;
+    }
+    
+    #isoMap {
+        background:#000;
+        margin:0;
+        padding:0;
+    }
+</style>
+
+<script type="text/javascript">
+    window.onload = function(){
+    var canvas, context, playerX = 0, playerY = 0;
+        canvas=document.getElementById("isoMap");
+        context = canvas.getContext('2d');
+        canvas.width = window.innerWidth || document.body.clientWidth;
+        canvas.height = window.innerHeight || document.body.clientHeight;
+        
+        function createMap() {
+
+            var img = new Image();
+            img.src = "bggrass.jpg";
+            img.width = img.width -1;
+            img.height = img.height -1;
+            img.onload = function(){
+                context.beginPath();
+                context.rect(0, 0, 500, 500); 
+                var pat=context.createPattern(img,"repeat");
+                context.fillStyle=pat;
+                context.fill(); 
+            }
+            context.translate((canvas.width/2)-250, (canvas.height/2)-250);
+            context.transform(1, 0.5, -1, 0.5, 160, 0);
+            context.closePath();
+            
+            context.beginPath();
+            var imgc = new Image();
+            imgc.src = "LittleChicken.png";
+            imgc.onload = function() {
+                context.drawImage(imgc, 0, 0, 70, 70, playerX, playerY, 70, 70);
+            }
+        }
+        
+        var movePlayer = function(e) {
+						if(!e) e = window.event;
+						switch (e.keyCode)
+						{
+							case 37:	// left arrow
+								playerX = playerX+60; 
+								break;
+							case 39:	// right arrow
+								playerX = playerX-60; 
+								break;
+							case 32:	// spacebar									
+								break;
+                                case 38: /* up arrow */
+                                playerY = playerY-50;
+                                break;
+                                case 40: /* down arrow */
+                                playerY = playerY+50;
+                                break;
+						}
+					};
+        
+        function gameSequence() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            createMap();
+        }
+        createMap();
+        window.requestAnimFrame = (function(){
+          return  window.requestAnimationFrame       ||
+                  window.webkitRequestAnimationFrame ||
+                  window.mozRequestAnimationFrame    ||
+                  function( callback ){
+                    window.setTimeout(callback, 1000 / 60);
+                  };
+        })();
+        
+
+		window.addEventListener("keyup", movePlayer, true);
+        
+        (function animloop(){
+          requestAnimFrame(animloop);
+          gameSequence();
+        })();
+    }
+</script>
+
+<canvas id="isoMap" width="500px" height="500px"></canvas>

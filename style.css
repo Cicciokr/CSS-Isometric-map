@@ -1,0 +1,106 @@
+body {
+    background-color: aquamarine;
+    cursor: url(images/CursorRacket.png), auto;
+}
+
+.cursorDefault {
+    cursor: url(images/CursorRacket.png), auto;
+}
+
+.cursorMoveOne {
+    cursor: url(images/CursorRacket-mid.png), auto;
+}
+.cursorMoveTwo {
+    cursor: url(images/CursorRacket-bottom.png), auto;
+}
+
+.container {
+    top: 0px;
+    width: 660px;
+    height: 660px;
+    border: 0px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -330px;
+    -webkit-transform: rotate(60deg) skew(0deg, -35deg) scale(0.8, 0.8);
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    transform-style: preserve-3D;
+    -webkit-transform-style: preserve-3D;
+}
+
+.block-30 {
+    width: 64px;
+    height: 64px;
+    display: block;
+    float: left;
+    z-index: 9;
+    background-image: url(images/bggrass.jpg);
+}
+
+.character {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    z-index: 99;
+    display: block;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    transform-origin: 0 100%;
+    -webkit-transform-origin: 0 100%;
+}
+
+.chicken {
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    z-index: 99;
+    display: block;
+    top: 0px;
+    background-image: url(images/LittleChicken.png);
+    background-repeat:no-repeat;
+    left: 0px;
+    overflow: hidden;
+    transform-origin: 0 100%;
+    -webkit-transform-origin: 0 100%;
+    -webkit-transform: rotate(-40deg);
+}
+
+.chicken_dead {
+    background-image:url(images/chicken_dead.png);
+    background-repeat:no-repeat;
+}
+
+.pointer {
+    position:absolute;
+    width:80px;
+    height:60px;
+    top:0px;
+    left:0px;
+    color:#fff;
+    font-size:20px;
+    font-weight: bold;
+    background-image: url(images/LittleChicken.png);
+    background-repeat: no-repeat;
+    text-align: right;
+    line-height: 60px;
+    padding-left: 20px;
+}
+
+.buttonSystem {
+    position:absolute;
+    top:40%;
+    display:block;
+    left:40%;
+    z-index: 9999;
+}
+
+button {
+    border:0px;
+    color:#fff;
+    background-color: transparent;
+    font-size:30px;
+    font-weight: bolder;
+}
