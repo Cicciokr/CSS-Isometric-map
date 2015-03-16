@@ -1,4 +1,4 @@
-# CSS-Isometric-map
+# CSS Isometric map
 "Chicken killer game", is a simple project to test a isometric map created by css.
 The map is created with css trasformation. Is an example that canvas sometimes are not indispensable.
 
